@@ -5,6 +5,10 @@ using UnityEngine.Networking;
 
 public class PlayerMoveTest : NetworkBehaviour {
 
+    //public
+    public GameObject bullet;
+    public Transform bulletSpawnLocation;
+
     void Update()
     {
         if(!isLocalPlayer)
@@ -17,5 +21,22 @@ public class PlayerMoveTest : NetworkBehaviour {
 
         transform.Rotate(0, x, 0);
         transform.Translate(0, 0, z);
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
+    }
+
+    void Shoot()
+    {
+        //Spawn a bullet
+        var newBullet = (GameObject)Instantiate(bullet, bulletSpawnLocation.position, bulletSpawnLocation.rotation);
+
+        //Give the new bullet some velocity
+        newBullet.GetComponent<Rigidbody>().velocity = newBullet.transform.forward * 6;
+
+        //Bullets will self destruct in 3 seconds
+        Destroy(newBullet, 3.0f);
     }
 }
