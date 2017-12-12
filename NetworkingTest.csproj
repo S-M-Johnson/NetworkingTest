@@ -219,7 +219,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\bulletController.cs" />
+    <Compile Include="Assets\CameraFacingBillboard.cs" />
+    <Compile Include="Assets\FaceCamera.cs" />
     <Compile Include="Assets\Player.cs" />
+    <Compile Include="Assets\playerHealth.cs" />
     <Compile Include="Assets\PlayerMoveTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

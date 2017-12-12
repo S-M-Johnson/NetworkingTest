@@ -24,17 +24,21 @@ public class PlayerMoveTest : NetworkBehaviour {
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Shoot();
+            CmdShoot();
         }
     }
 
-    void Shoot()
+    [Command]
+    void CmdShoot()
     {
         //Spawn a bullet
         var newBullet = (GameObject)Instantiate(bullet, bulletSpawnLocation.position, bulletSpawnLocation.rotation);
 
         //Give the new bullet some velocity
         newBullet.GetComponent<Rigidbody>().velocity = newBullet.transform.forward * 6;
+
+        //Also spawn this bullet on the clients
+        NetworkServer.Spawn(newBullet);
 
         //Bullets will self destruct in 3 seconds
         Destroy(newBullet, 3.0f);
