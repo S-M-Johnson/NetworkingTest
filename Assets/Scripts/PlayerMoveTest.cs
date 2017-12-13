@@ -8,6 +8,19 @@ public class PlayerMoveTest : NetworkBehaviour {
     //public
     public GameObject bullet;
     public Transform bulletSpawnLocation;
+    public Camera playerCam;
+    public AudioListener playerListener;
+
+    void Start()
+    {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
+        playerCam = GetComponentInChildren<Camera>();
+        playerCam.enabled = true;
+    }
 
     void Update()
     {

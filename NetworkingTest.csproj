@@ -219,12 +219,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\bulletController.cs" />
-    <Compile Include="Assets\CameraFacingBillboard.cs" />
-    <Compile Include="Assets\FaceCamera.cs" />
-    <Compile Include="Assets\Player.cs" />
-    <Compile Include="Assets\playerHealth.cs" />
-    <Compile Include="Assets\PlayerMoveTest.cs" />
+    <Compile Include="Assets\Scripts\bulletController.cs" />
+    <Compile Include="Assets\Scripts\CameraFacingBillboard.cs" />
+    <Compile Include="Assets\Scripts\FaceCamera.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\playerHealth.cs" />
+    <Compile Include="Assets\Scripts\PlayerMoveTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
