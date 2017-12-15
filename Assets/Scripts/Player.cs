@@ -5,11 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     //public
-        public float speed = 6f;
+    public float speed = 6f;
 
     //private
-        private Vector3 movement;
-        private Rigidbody playerRB;
+    private Vector3 movement;
+    private Rigidbody playerRB;
 
     void Start()
     {

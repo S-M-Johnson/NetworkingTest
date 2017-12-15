@@ -138,3 +138,4 @@ bd92312cc1d9b6ee893e20d10a73bf99 Assembly-CSharp.dll:.CameraFacingBillboard
 dd5481137759597d614818793c90a7fe Assembly-CSharp.dll:.Player
 4006cf6f6e90f092f9be4ebfa03a5f81 Assembly-CSharp.dll:.PlayerMoveTest
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.bulletController
+49f472fa78d39418175fc6e7953296a9 Assembly-CSharp.dll:.MouseLook

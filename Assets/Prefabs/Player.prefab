@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 114534561151957216}
   - component: {fileID: 114141514777758462}
   - component: {fileID: 114139484493586598}
+  - component: {fileID: 114103430815629778}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -99,6 +100,7 @@ GameObject:
   - component: {fileID: 20912373782354456}
   - component: {fileID: 124050505976346288}
   - component: {fileID: 81832338715286788}
+  - component: {fileID: 114874607855423746}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -446,6 +448,19 @@ MonoBehaviour:
     i15: 64
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114103430815629778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573997052122684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e7ba8fd642c3248922ce36c0aefbcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axes: 1
+  sensitivity: 2
 --- !u!114 &114139484493586598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -598,6 +613,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114874607855423746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576106258354218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e7ba8fd642c3248922ce36c0aefbcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axes: 2
+  sensitivity: 2
 --- !u!124 &124050505976346288
 Behaviour:
   m_ObjectHideFlags: 1
