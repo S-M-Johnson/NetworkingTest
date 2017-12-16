@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class playerHealth : MonoBehaviour {
+public class playerHealth : NetworkBehaviour {
 
     //public
     public const int maxHealth = 100;
-    public int currentHealth = maxHealth;
     public RectTransform healthBar;
+    public float healthPercent = 0;
+
+    [SyncVar(hook = "ChangeHealth")]
+    public int currentHealth = maxHealth;
 
     public void TakeDamage(int damageTaken)
     {
-        currentHealth -= damageTaken;
+        if(!isServer)
+        {
+            return;
+        }
 
-        //Update healthbar
-        healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
+        currentHealth -= damageTaken;
 
         if (currentHealth <= 0)
         {
@@ -24,5 +30,14 @@ public class playerHealth : MonoBehaviour {
             //Die
             Debug.Log("You're dead, buddy");
         }
+    }
+
+    //This function is called automatically whenever currentHealth changes. The new value of currentHealth is passed in
+    void ChangeHealth(int newHealth)
+    {
+        healthPercent = ((float)newHealth / 100f) * (float)maxHealth;
+        Debug.Log(healthPercent);
+        //Update healthbar
+        healthBar.sizeDelta = new Vector2(healthPercent, healthBar.sizeDelta.y);
     }
 }

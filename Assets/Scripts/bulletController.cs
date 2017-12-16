@@ -13,7 +13,7 @@ public class bulletController : MonoBehaviour
 
         if(health != null)
         {
-            health.TakeDamage(10);
+            health.TakeDamage(15);
         }
         else
         {

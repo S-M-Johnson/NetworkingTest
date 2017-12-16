@@ -10,6 +10,7 @@ public class PlayerMoveTest : NetworkBehaviour {
     public Transform bulletSpawnLocation;
     public Camera playerCam;
     public AudioListener playerListener;
+    public Canvas healthBarCanvas;
 
     void Start()
     {
@@ -18,8 +19,17 @@ public class PlayerMoveTest : NetworkBehaviour {
             return;
         }
 
+        //Get and activate the player's camera
         playerCam = GetComponentInChildren<Camera>();
         playerCam.enabled = true;
+
+        //Get and activate the player's audiolistener
+        playerListener = GetComponentInChildren<AudioListener>();
+        playerListener.enabled = true;
+
+        //Get and activate the player's healthbar
+        healthBarCanvas = GetComponentInChildren<Canvas>();
+        healthBarCanvas.enabled = true;
     }
 
     void Update()
