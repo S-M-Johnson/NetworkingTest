@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour {
 
+    //public
     public enum RotationAxes { MouseXandY = 0, MouseX = 1, MouseY = 2};
     public RotationAxes axes = RotationAxes.MouseXandY;
     public float sensitivity = 15f;
-    float rotationX = 0f;
-    float rotationY = 0f;
+
+    //private
+    private float rotationX = 0f;
+    private float rotationY = 0f;
+    private float minY = -80f;
+    private float maxY = 80f;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +29,7 @@ public class MouseLook : MonoBehaviour {
         else if (axes == RotationAxes.MouseY)
         {
             rotationY += Input.GetAxis("Mouse Y") * sensitivity;
+            rotationY = Mathf.Clamp(rotationY, minY, maxY);
 
             transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
         }
