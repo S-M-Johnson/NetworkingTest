@@ -15,9 +15,21 @@ public class playerHealth : NetworkBehaviour {
     [SyncVar(hook = "ChangeHealth")]
     public int currentHealth = maxHealth;
 
+    //private
+    private NetworkStartPosition[] spawnPoints;
+
     void Start()
     {
+        if(!isLocalPlayer)
+        {
+            return;
+        }
+
+        //Get length of health bar for percentage calculation
         healthBarX = healthBar.sizeDelta.x;
+
+        //Get all the spawn points
+        spawnPoints = FindObjectsOfType<NetworkStartPosition>();
     }
 
     public void TakeDamage(int damageTaken)
@@ -50,9 +62,17 @@ public class playerHealth : NetworkBehaviour {
     [ClientRpc]
     void RpcRespawn()
     {
-        if(isLocalPlayer)
+        if(!isLocalPlayer)
         {
-            transform.position = Vector3.zero;
+            return;
         }
+
+        Vector3 spawnLocation = Vector3.zero;
+        if(spawnPoints != null && spawnPoints.Length > 0)
+        {
+            spawnLocation = spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
+        }
+
+        transform.position = spawnLocation;
     }
 }
