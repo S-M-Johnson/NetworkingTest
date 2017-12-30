@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bulletController : MonoBehaviour
+public class BulletController : MonoBehaviour
 {
 
     void OnCollisionEnter(Collision collision)
     {
         //Get a handle to the player we hit
         var playerHit = collision.gameObject;
-        var health = playerHit.GetComponent<playerHealth>();
+        var health = playerHit.GetComponent<PlayerHealth>();
 
         if(health != null)
         {
@@ -17,7 +17,7 @@ public class bulletController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Something went terribly wrong");
+            //We hit something that doesn't have a health script
         }
 
         Destroy(gameObject);

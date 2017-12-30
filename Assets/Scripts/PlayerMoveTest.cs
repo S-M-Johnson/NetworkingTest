@@ -45,7 +45,7 @@ public class PlayerMoveTest : NetworkBehaviour {
         transform.Translate(x, 0, 0);
         transform.Translate(0, 0, z);
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             CmdShoot();
         }

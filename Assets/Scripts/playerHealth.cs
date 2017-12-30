@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
-public class playerHealth : NetworkBehaviour {
+public class PlayerHealth : NetworkBehaviour {
 
     //public
     public const int maxHealth = 100;
